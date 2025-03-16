@@ -25,10 +25,10 @@ def extract_omnigraph_config():
                     conns = attr.GetConnections()
                     if conns:
                         for conn in conns:
-                            conn_str = str(conn)  # 예: "/World/ActionGraph/OnPlaybackTick.outputs:tick"
+                            conn_str = str(conn)
                             parts = conn_str.split('/')
                             source_port = parts[-1] if parts else conn_str
-                            dest_port = f"{node_name}.{attr.GetName()}"  # 예: "PublishJointState.inputs:execIn"
+                            dest_port = f"{node_name}.{attr.GetName()}"
                             connections.append((source_port, dest_port))
                     else:
                         if attr.HasAuthoredValue():
